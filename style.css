@@ -1,0 +1,867 @@
+/* Основные стили и переменные */
+:root {
+  --primary-orange: #e57716;
+  --dark-orange: #dd6c21;
+  --light-orange: #FF8C5A;
+  --light-bg: #FFF8F5;
+  --dark-bg: #1A1A1A;
+  --text-dark: #333;
+  --text-light: #fff;
+  --gray: #666;
+  --light-gray: #f5f5f5;
+  --border-color: #e0e0e0;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  background-color: var(--primary-orange);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--dark-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 15px rgba(255, 107, 53, 0.3);
+}
+
+.btn-large {
+  padding: 15px 35px;
+  font-size: 1.1rem;
+}
+
+/* ========== HEADER ========== */
+
+.header {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 0 0;
+}
+
+.header-container {
+  padding: 0 20px 15px;
+  position: relative;
+}
+
+/* Логотип и название ВСЕГДА в строку */
+.header-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+  min-height: 80px;
+}
+
+/* Логотип */
+.header-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header-logo .logo-icon {
+  background-color: transparent;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.header-logo .logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Контейнер для названия с полосами */
+.header-title-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+/* Оранжевые полосы */
+.header-title-stripe {
+  height: 3px;
+  background-color: var(--primary-orange);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.header-title-stripe.top {
+  margin-bottom: auto;
+}
+
+.header-title-stripe.bottom {
+  margin-top: auto;
+}
+
+/* Название компании */
+.header-title {
+  padding: 5px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.company-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.company-subtitle {
+  font-size: 0.75rem;
+  color: var(--gray);
+  font-weight: 400;
+  margin: 3px 0 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Навигация */
+.nav {
+  position: relative;
+  border-top: 1px solid var(--border-color);
+  padding-top: 15px;
+  margin-top: 5px;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: var(--transition);
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: var(--light-bg);
+  color: var(--primary-orange);
+}
+
+/* Гамбургер-меню */
+.mobile-menu-btn {
+  display: none; 
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--primary-orange);
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  z-index: 1001;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========== ОСНОВНЫЕ СЕКЦИИ ========== */
+
+.section {
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary-orange);
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--gray);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Секция деятельности */
+.activity-section {
+  background-color: var(--light-bg);
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.activity-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.activity-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.activity-icon {
+  background-color: var(--light-bg);
+  color: var(--primary-orange);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 30px;
+}
+
+.activity-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.activity-description {
+  background-color: white;
+  border-left: 4px solid var(--primary-orange);
+  padding: 25px;
+  border-radius: 0 8px 8px 0;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+}
+
+.activity-description p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Секция продукции */
+.products-section {
+  background-color: white;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.product-image {
+  height: 220px;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.product-content {
+  padding: 25px;
+}
+
+.product-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.product-content p {
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+
+.product-features {
+  list-style: none;
+}
+
+.product-features li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.product-features i {
+  color: var(--primary-orange);
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
+
+.products-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ========== FOOTER ========== */
+
+.footer {
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  padding-top: 60px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Логотип и название в футере */
+.footer-logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  min-height: 50px;
+}
+
+.footer-logo-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
+}
+
+.footer-logo-icon .logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer-title h2 {
+  font-size: 1rem;
+  color: white;
+  margin: 0 0 2px 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.footer-title p {
+  font-size: 0.65rem;
+  color: #aaa;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.footer-description {
+  margin-top: 15px;
+  color: #aaa;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* Контакты */
+.footer-contacts h3,
+.footer-quick-links h3 {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  color: white;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-contacts h3::after,
+.footer-quick-links h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary-orange);
+}
+
+.contact-list {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  color: #aaa;
+}
+
+.contact-list i {
+  color: var(--primary-orange);
+  margin-right: 15px;
+  margin-top: 3px;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  background-color: var(--primary-orange);
+  transform: translateY(-3px);
+}
+
+/* Быстрые ссылки */
+.footer-quick-links ul {
+  list-style: none;
+}
+
+.footer-quick-links li {
+  margin-bottom: 12px;
+}
+
+.footer-quick-links a {
+  color: #aaa;
+  text-decoration: none;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.footer-quick-links a:hover {
+  color: var(--primary-orange);
+  padding-left: 5px;
+}
+
+/* Нижняя часть футера */
+.footer-bottom {
+  background-color: #111;
+  padding: 25px 0;
+  text-align: center;
+  border-top: 1px solid #333;
+}
+
+.footer-bottom p {
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.footer-bottom a {
+  color: #aaa;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-bottom a:hover {
+  color: var(--primary-orange);
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+
+/* Планшеты (811px - 1150px) */
+@media (min-width: 820px) and (max-width: 1150px) {
+  .header-main {
+      min-height: 70px;
+  }
+  
+  .header-logo .logo-icon {
+      width: 50px;
+      height: 50px;
+  }
+  
+  .company-name {
+      font-size: 1.2rem;
+  }
+  
+  .company-subtitle {
+      font-size: 0.65rem;
+  }
+  
+  .nav-link {
+      padding: 8px 12px;
+      font-size: 0.85rem;
+  }
+  
+  .section-title {
+      font-size: 2.2rem;
+  }
+  
+  .footer-logo-wrapper {
+      min-height: 45px;
+      gap: 12px;
+  }
+  
+  .footer-logo-icon {
+      width: 35px;
+      height: 35px;
+  }
+  
+  .footer-title h2 {
+      font-size: 0.9rem;
+  }
+  
+  .footer-title p {
+      font-size: 0.6rem;
+  }
+}
+
+/* Телефоны и маленькие планшеты */
+@media (max-width: 819px) {
+  /* Header */
+  .header {
+      padding: 10px 0 0;
+  }
+  
+  .header-container {
+      padding: 0 15px 10px;
+  }
+  
+  .header-main {
+      min-height: 60px;
+      gap: 15px;
+      margin-bottom: 10px;
+      padding-right: 50px;
+  }
+  
+  .header-logo .logo-icon {
+      width: 45px;
+      height: 45px;
+  }
+  
+  .company-name {
+      font-size: 1rem;
+  }
+  
+  .company-subtitle {
+      font-size: 0.6rem;
+  }
+  
+  /* Навигация для мобильных */
+  .nav {
+      position: static;
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+  }
+  
+  .nav-list {
+      display: none;
+      flex-direction: column;
+      background-color: white;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 10px 10px;
+      z-index: 1000;
+      margin-top: 0;
+  }
+  
+  .nav-list.active {
+      display: flex;
+  }
+  
+  .nav-link {
+      padding: 12px 15px;
+      text-align: center;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+  }
+  
+  /* Гамбургер-меню */
+  .mobile-menu-btn {
+      display: flex;
+  }
+  
+  /* Основные секции */
+  .section {
+      padding: 60px 0;
+  }
+  
+  .section-title {
+      font-size: 1.8rem;
+  }
+  
+  .activity-grid,
+  .products-grid {
+      grid-template-columns: 1fr;
+      gap: 25px;
+  }
+  
+  /* Footer */
+  .footer {
+      padding-top: 40px;
+  }
+  
+  .footer-container {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      text-align: center;
+  }
+  
+  .footer-logo-wrapper {
+      flex-direction: row;
+      justify-content: flex-start;
+      text-align: left;
+      gap: 12px;
+      padding-bottom: 15px;
+  }
+  
+  .footer-logo-icon {
+      width: 35px;
+      height: 35px;
+      margin: 0;
+  }
+  
+  .footer-title {
+      text-align: left;
+  }
+  
+  .footer-title h2 {
+      font-size: 0.9rem;
+      text-align: left;
+  }
+  
+  .footer-title p {
+      font-size: 0.6rem;
+      text-align: left;
+  }
+  
+  .footer-description {
+      text-align: center;
+      font-size: 0.85rem;
+  }
+  
+  .footer-contacts h3::after,
+  .footer-quick-links h3::after {
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  
+  .contact-list li {
+      justify-content: center;
+      text-align: center;
+  }
+  
+  .social-links {
+      justify-content: center;
+  }
+  
+  .footer-quick-links a:hover {
+      padding-left: 0;
+  }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+  .container {
+      padding: 0 15px;
+  }
+  
+  .header-main {
+      min-height: 50px;
+      gap: 10px;
+  }
+  
+  .header-logo .logo-icon {
+      width: 40px;
+      height: 40px;
+  }
+  
+  .company-name {
+      font-size: 0.9rem;
+  }
+  
+  .company-subtitle {
+      font-size: 0.55rem;
+  }
+  
+  .mobile-menu-btn {
+      right: 15px;
+      top: 10px;
+      width: 35px;
+      height: 35px;
+      font-size: 20px;
+  }
+  
+  .section-title {
+      font-size: 1.6rem;
+  }
+  
+  .activity-card,
+  .product-card {
+      padding: 20px;
+  }
+  
+  .btn {
+      padding: 10px 20px;
+      width: 100%;
+  }
+  
+  /* Footer */
+  .footer-logo-wrapper {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+  }
+  
+  .footer-logo-icon {
+      width: 40px;
+      height: 40px;
+  }
+  
+  .footer-title {
+      text-align: center;
+  }
+  
+  .footer-title h2 {
+      font-size: 1rem;
+      text-align: center;
+  }
+  
+  .footer-title p {
+      font-size: 0.65rem;
+      text-align: center;
+  }
+}
+
+/* Очень маленькие телефоны */
+@media (max-width: 360px) {
+  .header-main {
+      min-height: 45px;
+      gap: 8px;
+  }
+  
+  .header-logo .logo-icon {
+      width: 35px;
+      height: 35px;
+  }
+  
+  .company-name {
+      font-size: 0.8rem;
+  }
+  
+  .company-subtitle {
+      font-size: 0.5rem;
+  }
+  
+  .mobile-menu-btn {
+      right: 10px;
+      top: 8px;
+      width: 30px;
+      height: 30px;
+      font-size: 18px;
+  }
+}
+
