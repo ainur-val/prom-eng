@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши работы | ПРОМ ИНЖИНИРИНГ ООО</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="header-main">
+                <!-- Логотип -->
+                <div class="header-logo">
+                    <a href="index.html" class="logo-link">
+                        <div class="logo-icon">
+                            <img src="images/logo.png" alt="Логотип компании" class="logo-img">
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Название компании с оранжевыми полосами -->
+                <div class="header-title-wrapper">
+                    <div class="header-title-stripe top"></div>
+                    <div class="header-title">
+                        <h1 class="company-name">ПРОМ ИНЖИНИРИНГ</h1>
+                        <p class="company-subtitle">Общество с ограниченной ответственностью</p>
+                    </div>
+                    <div class="header-title-stripe bottom"></div>
+                </div>
+            </div>
+            
+            <!-- Навигация -->
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Главная</a></li>
+                    <li><a href="index.html#about" class="nav-link">О компании</a></li>
+                    <li><a href="index.html#products" class="nav-link">Продукция</a></li>
+                    <li><a href="works.html" class="nav-link active">Наши работы</a></li>
+                    <li><a href="index.html#reviews" class="nav-link">Отзывы</a></li>
+                    <li><a href="index.html#docs" class="nav-link">Документация</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Контакты</a></li>
+                    <li><a href="index.html#news" class="nav-link">Новости</a></li>
+                </ul>
+                
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основное содержимое - Галерея работ -->
+    <main class="main">
+        <!-- Герой-секция -->
+        <section class="hero-section works-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Наши работы</h1>
+                    <p class="hero-subtitle">Реализованные проекты по проектированию и строительству блочно-модульного оборудования</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Галерея работ -->
+        <section class="works-gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Реализованные проекты</h2>
+                    <p class="section-subtitle">Более 50 успешных проектов по всей России</p>
+                </div>
+
+                <div class="works-filter">
+                    <button class="filter-btn active" data-filter="all">Все работы</button>
+                    <button class="filter-btn" data-filter="reservoir">Резервуары</button>
+                    <button class="filter-btn" data-filter="boiler">Котельные</button>
+                    <button class="filter-btn" data-filter="cleaning">Очистные сооружения</button>
+                    <button class="filter-btn" data-filter="energy">Энергомодули</button>
+                </div>
+
+                <div class="works-grid">
+                    <!-- Проект 1 -->
+                    <div class="work-card" data-category="reservoir">
+                        <div class="work-image">
+                            <img src="./images/works/rvs8.jpeg" alt="Строительство резервуара для нефтепродуктов">
+                            <div class="work-category">Резервуары</div>
+                            <!-- Кнопка просмотра галереи -->
+                            <button class="gallery-btn" data-project="reservoir-1">
+                                <i class="fas fa-images"></i> Смотреть все фото
+                            </button>
+                        </div>
+                        <div class="work-content">
+                            <h3>Резервуар для нефтепродуктов</h3>
+                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> г. Москва</p>
+                            <p class="work-description">Строительство вертикального стального резервуара объемом 5000 м³ для хранения нефтепродуктов.</p>
+                        </div>
+                    </div>
+
+                    <!-- Проект 2 -->
+                    <div class="work-card" data-category="boiler">
+                        <div class="work-image">
+                            <img src="images/works/boiler-1.jpg" alt="Блочно-модульная котельная">
+                            <div class="work-category">Котельные</div>
+                        </div>
+                        <div class="work-content">
+                            <h3>Блочно-модульная котельная</h3>
+                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Московская область</p>
+                            <p class="work-description">Проектирование и строительство модульной котельной мощностью 5 МВт для отопления жилого комплекса.</p>
+                        </div>
+                    </div>
+
+                    <!-- Проект 3 -->
+                    <div class="work-card" data-category="cleaning">
+                        <div class="work-image">
+                            <img src="images/works/cleaning-1.jpg" alt="Очистные сооружения">
+                            <div class="work-category">Очистные сооружения</div>
+                        </div>
+                        <div class="work-content">
+                            <h3>Очистные сооружения для предприятия</h3>
+                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Свердловская область</p>
+                            <p class="work-description">Строительство комплекса очистных сооружений для промышленного предприятия.</p>
+                        </div>
+                    </div>
+
+                    <!-- Проект 4 -->
+                    <div class="work-card" data-category="energy">
+                        <div class="work-image">
+                            <img src="images/works/energy-1.jpg" alt="Энергомодуль">
+                            <div class="work-category">Энергомодули</div>
+                        </div>
+                        <div class="work-content">
+                            <h3>Автономный энергомодуль</h3>
+                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Республика Коми</p>
+                            <p class="work-description">Поставка и монтаж автономного энергомодуля для удаленного поселка.</p>
+                        </div>
+                    </div>
+
+                    <!-- Проект 5 -->
+                    <div class="work-card" data-category="reservoir">
+                        <div class="work-image">
+                            <img src="images/works/reservoir-2.jpg" alt="Резервуар для химической продукции">
+                            <div class="work-category">Резервуары</div>
+                        </div>
+                        <div class="work-content">
+                            <h3>Резервуар для химической продукции</h3>
+                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Татарстан</p>
+                            <p class="work-description">Изготовление и монтаж специализированного резервуара для хранения химической продукции.</p>
+                        </div>
+                    </div>
+
+                    <!-- Проект 6 -->
+                    <div class="work-card" data-category="boiler">
+                        <div class="work-image">
+                            <img src="images/works/boiler-2.jpg" alt="Промышленная котельная">
+                            <div class="work-category">Котельные</div>
+                        </div>
+                        <div class="work-content">
+                            <h3>Промышленная котельная</h3>
+                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Челябинская область</p>
+                            <p class="work-description">Строительство промышленной котельной для металлургического завода.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Статистика -->
+                <div class="works-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Реализованных проектов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Регионов работы</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Гарантия качества</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Техподдержка</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA секция -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Хотите реализовать подобный проект?</h2>
+                    <p>Свяжитесь с нами для обсуждения деталей вашего проекта</p>
+                    <a href="index.html#contact" class="btn btn-large">Обсудить проект</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+      <div class="container footer-container">
+          <div class="footer-logo">
+              <!-- Блок логотипа и названия как в header -->
+              <div class="footer-logo-wrapper">
+                  <div class="footer-logo-icon">
+                      <img src="images/logo.png" alt="Логотип компании" class="logo-img">
+                  </div>
+                  <div class="footer-title">
+                      <h2>ПРОМ ИНЖИНИРИНГ</h2>
+                      <p>Общество с ограниченной ответственностью</p>
+                  </div>
+              </div>
+              <p class="footer-description">Проектирование, производство и поставка блочно-модульного оборудования для промышленных предприятий.</p>
+          </div>
+          
+          <div class="footer-contacts" id="contact">
+              <h3>Контакты</h3>
+              <ul class="contact-list">
+                  <li>
+                      <i class="fas fa-map-marker-alt"></i>
+                      <span>452606, Республика Башкортостан, г.Октябрьский, ул.Северная, зд.19, офис 205</span>
+                  </li>
+                  <li>
+                      <i class="fas fa-phone"></i>
+                      <span>+7 (927) 35-85-716</span>
+                  </li>
+                  <li>
+                      <i class="fas fa-envelope"></i>
+                      <span>prom-in@internet.ru</span>
+                  </li>
+              </ul>
+              
+              <div class="social-links">
+                  <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+                  <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                  <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+              </div>
+          </div>
+          
+          <div class="footer-quick-links">
+              <h3>Быстрые ссылки</h3>
+              <ul>
+                  <li><a href="#about">О компании</a></li>
+                  <li><a href="#products">Продукция</a></li>
+                  <li><a href="#docs">Документация</a></li>
+                  <li><a href="#contact">Контакты</a></li>
+              </ul>
+          </div>
+      </div>
+      
+      <div class="footer-bottom">
+          <div class="container">
+              <p>&copy; 2025 ПРОМ ИНЖИНИРИНГ ООО. Все права защищены.</p>
+              <p><a href="#">Политика конфиденциальности</a> | <a href="#">Карта сайта</a></p>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Модальное окно для галереи -->
+<div class="modal-overlay" id="galleryModal">
+    <div class="modal-container">
+        <button class="modal-close" id="closeModal">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="modal-header">
+            <h3 id="modalProjectTitle">Название проекта</h3>
+            <p id="modalProjectLocation" class="modal-location"></p>
+        </div>
+        
+        <div class="modal-content">
+            <!-- Основное изображение -->
+            <div class="modal-main-image">
+                <img id="modalMainImage" src="" alt="Основное фото проекта">
+            </div>
+            
+            <!-- Миниатюры -->
+            <div class="modal-thumbnails" id="modalThumbnails">
+                <!-- Миниатюры будут добавляться через JavaScript -->
+            </div>
+            
+            <!-- Описание -->
+            <div class="modal-description">
+                <p id="modalProjectDescription">Описание проекта...</p>
+                
+                <div class="modal-specs">
+                    <h4>Технические характеристики:</h4>
+                    <div class="specs-grid" id="modalSpecs">
+                        <!-- Спецификации будут добавляться через JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Навигация -->
+            <div class="modal-navigation">
+                <button class="modal-nav-btn prev-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i> Предыдущее
+                </button>
+                <button class="modal-nav-btn next-btn" id="nextBtn">
+                    Следующее <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="gallery.js"></script>
+    <script src="script.js"></script>
+    <script src="works-script.js"></script>
+</body>
+</html>

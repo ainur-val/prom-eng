@@ -85,8 +85,9 @@ function initActiveNavigation() {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
           const sectionId = section.getAttribute('id');
-          
-          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          const currentPath = window.location.pathname;
+          console.log(currentPath);
+          if (currentPath == '/index.html' &&  scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
               navLinks.forEach(link => {
                   link.classList.remove('active');
                   if (link.getAttribute('href') === `#${sectionId}`) {
@@ -195,3 +196,5 @@ function submitContactForm(event) {
 
 // Для использования в других формах на сайте
 window.submitContactForm = submitContactForm;
+
+
