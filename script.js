@@ -126,6 +126,13 @@ function initActiveNavigation() {
                     link.classList.add('active');
                 } else if (currentPage === 'works.html' && linkHref.includes('works')) {
                     link.classList.add('active');
+                } else if (currentPage === 'reviews.html') {
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('href') === 'reviews.html' || 
+                            link.textContent.includes('Отзывы')) {
+                            link.classList.add('active');
+                        }
+                    });
                 }
             });
         }
@@ -151,20 +158,6 @@ function initActiveNavigation() {
 function initImageHandling() {
     const images = document.querySelectorAll('img');
     
-    images.forEach(img => {
-        // Если изображение не загрузилось
-        img.addEventListener('error', function() {
-            if (!this.hasAttribute('data-placeholder-set')) {
-                const width = this.width || 400;
-                const height = this.height || 300;
-                const text = this.alt || 'Изображение';
-                const color = this.parentElement.classList.contains('product-image') ? 'FF6B35' : 'CCCCCC';
-                
-                this.src = `https://via.placeholder.com/${width}x${height}/${color}/FFFFFF?text=${encodeURIComponent(text)}`;
-                this.setAttribute('data-placeholder-set', 'true');
-            }
-        });
-    });
 }
 
 // Инициализация анимаций

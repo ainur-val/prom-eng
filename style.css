@@ -959,8 +959,7 @@ body {
 
 /* Герой-секция для страницы работ */
 .works-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-              url('https://via.placeholder.com/1920x600/333/FFFFFF?text=Наши+работы');
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
   background-size: cover;
   background-position: center;
   color: white;
@@ -1224,8 +1223,7 @@ body {
 
 /* Герой-секция для страницы новостей */
 .news-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-              url('https://via.placeholder.com/1920x600/2E7D32/FFFFFF?text=Благотворительность+в+спорте');
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
   background-size: cover;
   background-position: center;
   color: white;

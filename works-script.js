@@ -65,7 +65,19 @@ function initStatsAnimation() {
     
     function animateStats() {
         stats.forEach(stat => {
+            // Получаем оригинальный текст
+            const originalText = stat.textContent;
+            
+            // Проверяем, есть ли в тексте % или /
+            if (originalText.includes('%') || originalText.includes('/')) {
+                // Оставляем текст как есть
+                return;
+            }
+            
+            // Для обычных чисел делаем анимацию
             const target = parseInt(stat.textContent);
+            if (isNaN(target)) return;
+            
             let current = 0;
             const increment = target / 50;
             const timer = setInterval(() => {
@@ -73,6 +85,8 @@ function initStatsAnimation() {
                 if (current >= target) {
                     current = target;
                     clearInterval(timer);
+                    // Восстанавливаем оригинальный текст
+                    stat.textContent = originalText;
                 }
                 stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
             }, 30);

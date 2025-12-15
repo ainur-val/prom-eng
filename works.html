@@ -4,9 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Наши работы | ПРОМ ИНЖИНИРИНГ ООО</title>
+    <link rel="icon" href="./images/title.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <style>
+        /* Дополнительные стили для кнопок галереи */
+        .gallery-btn {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(229, 119, 22, 0.9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            z-index: 2;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+        
+        .gallery-btn:hover {
+            background: var(--dark-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-btn i {
+            font-size: 1rem;
+        }
+        
+        /* Адаптивность для кнопок */
+        @media (max-width: 768px) {
+            .gallery-btn {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+                bottom: 10px;
+                left: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Шапка сайта -->
@@ -40,7 +90,7 @@
                     <li><a href="index.html#about" class="nav-link">О компании</a></li>
                     <li><a href="index.html#products" class="nav-link">Продукция</a></li>
                     <li><a href="works.html" class="nav-link active">Наши работы</a></li>
-                    <li><a href="index.html#reviews" class="nav-link">Отзывы</a></li>
+                    <li><a href="reviews.html" class="nav-link">Отзывы</a></li>
                     <li><a href="index.html#docs" class="nav-link">Документация</a></li>
                     <li><a href="index.html#contact" class="nav-link">Контакты</a></li>
                     <li><a href="news.html" class="nav-link">Новости</a></li>
@@ -60,7 +110,7 @@
             <div class="container">
                 <div class="hero-content">
                     <h1 class="hero-title">Наши работы</h1>
-                    <p class="hero-subtitle">Реализованные проекты по проектированию и строительству блочно-модульного оборудования</p>
+                    <p class="hero-subtitle">Реализованные проекты по проектированию и строительству объектов промышленного назначения</p>
                 </div>
             </div>
         </section>
@@ -76,91 +126,120 @@
                 <div class="works-filter">
                     <button class="filter-btn active" data-filter="all">Все работы</button>
                     <button class="filter-btn" data-filter="reservoir">Резервуары</button>
-                    <button class="filter-btn" data-filter="boiler">Котельные</button>
-                    <button class="filter-btn" data-filter="cleaning">Очистные сооружения</button>
-                    <button class="filter-btn" data-filter="energy">Энергомодули</button>
+                    <button class="filter-btn" data-filter="bknp">БКНС</button>
+                    <button class="filter-btn" data-filter="pipeline">Трубопроводы</button>
+                    <button class="filter-btn" data-filter="bdr">БДР</button>
+                    <button class="filter-btn" data-filter="evaporator">Блоки испарителя</button>
+                    <button class="filter-btn" data-filter="fire">Блоки пожарного оборудование</button>
+                    <button class="filter-btn" data-filter="apparatus">Аппаратурные блоки</button>
                 </div>
 
                 <div class="works-grid">
-                    <!-- Проект 1 -->
+                    <!-- Проект 1: Резервуар -->
                     <div class="work-card" data-category="reservoir">
                         <div class="work-image">
-                            <img src="./images/works/rvs8.jpeg" alt="Строительство резервуара для нефтепродуктов">
+                            <img src="./images/works/reservoir1.jpeg" alt="Резервуар для нефтепродуктов">
                             <div class="work-category">Резервуары</div>
-                            <!-- Кнопка просмотра галереи -->
-                            <button class="gallery-btn" data-project="reservoir-1">
+                            <button class="gallery-btn" data-project="reservoir">
                                 <i class="fas fa-images"></i> Смотреть все фото
                             </button>
                         </div>
                         <div class="work-content">
                             <h3>Резервуар для нефтепродуктов</h3>
                             <p class="work-location"><i class="fas fa-map-marker-alt"></i> г. Москва</p>
-                            <p class="work-description">Строительство вертикального стального резервуара объемом 5000 м³ для хранения нефтепродуктов.</p>
+                            <p class="work-description">Строительство вертикального стального резервуара для хранения нефтепродуктов. Полный цикл работ от проектирования до пуско-наладки.</p>
                         </div>
                     </div>
 
-                    <!-- Проект 2 -->
-                    <div class="work-card" data-category="boiler">
+                    <!-- Проект 2: БКНС -->
+                    <div class="work-card" data-category="bknp">
                         <div class="work-image">
-                            <img src="images/works/boiler-1.jpg" alt="Блочно-модульная котельная">
-                            <div class="work-category">Котельные</div>
+                            <img src="./images/works/bknp1.jpeg" alt="Блочная кустовая насосная станция">
+                            <div class="work-category">БКНС</div>
+                            <button class="gallery-btn" data-project="bknp">
+                                <i class="fas fa-images"></i> Смотреть все фото
+                            </button>
                         </div>
                         <div class="work-content">
-                            <h3>Блочно-модульная котельная</h3>
-                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Московская область</p>
-                            <p class="work-description">Проектирование и строительство модульной котельной мощностью 5 МВт для отопления жилого комплекса.</p>
+                            <h3>Блочная кустовая насосная станция</h3>
+                            <p class="work-description">Проектирование и строительство БКНС для поддержания пластового давления и закачки воды в нефтяные скважины.</p>
                         </div>
                     </div>
 
-                    <!-- Проект 3 -->
-                    <div class="work-card" data-category="cleaning">
+                    <!-- Проект 3: Трубопровод -->
+                    <div class="work-card" data-category="pipeline">
                         <div class="work-image">
-                            <img src="images/works/cleaning-1.jpg" alt="Очистные сооружения">
-                            <div class="work-category">Очистные сооружения</div>
+                            <img src="./images/works/pipeline1.jpeg" alt="Строительство трубопровода">
+                            <div class="work-category">Трубопроводы</div>
+                            <button class="gallery-btn" data-project="pipeline">
+                                <i class="fas fa-images"></i> Смотреть все фото
+                            </button>
                         </div>
                         <div class="work-content">
-                            <h3>Очистные сооружения для предприятия</h3>
-                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Свердловская область</p>
-                            <p class="work-description">Строительство комплекса очистных сооружений для промышленного предприятия.</p>
+                            <h3>Строительство трубопровода</h3>
+                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Ханты-Мансийский АО</p>
+                            <p class="work-description">Прокладка трубопровода для транспортировки нефтепродуктов.</p>
                         </div>
                     </div>
 
-                    <!-- Проект 4 -->
-                    <div class="work-card" data-category="energy">
+                    <!-- Проект 4: БДР -->
+                    <div class="work-card" data-category="bdr">
                         <div class="work-image">
-                            <img src="images/works/energy-1.jpg" alt="Энергомодуль">
-                            <div class="work-category">Энергомодули</div>
+                            <img src="./images/works/bdr1.jpeg" alt="Блок дозирования реагентов">
+                            <div class="work-category">БДР</div>
+                            <button class="gallery-btn" data-project="bdr">
+                                <i class="fas fa-images"></i> Смотреть все фото
+                            </button>
                         </div>
                         <div class="work-content">
-                            <h3>Автономный энергомодуль</h3>
-                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Республика Коми</p>
-                            <p class="work-description">Поставка и монтаж автономного энергомодуля для удаленного поселка.</p>
+                            <h3>Блок дозирования реагентов</h3>
+                            <p class="work-description">Изготовление и монтаж блока дозирования реагентов для автоматического приготовления и подачи химических реагентов.</p>
                         </div>
                     </div>
 
-                    <!-- Проект 5 -->
-                    <div class="work-card" data-category="reservoir">
+                    <!-- Проект 5: Блок испарителя -->
+                    <div class="work-card" data-category="evaporator">
                         <div class="work-image">
-                            <img src="images/works/reservoir-2.jpg" alt="Резервуар для химической продукции">
-                            <div class="work-category">Резервуары</div>
+                            <img src="./images/works/evaporator1.jpeg" alt="Блок испарителя">
+                            <div class="work-category">Блоки испарителя</div>
+                            <button class="gallery-btn" data-project="evaporator">
+                                <i class="fas fa-images"></i> Смотреть все фото
+                            </button>
                         </div>
                         <div class="work-content">
-                            <h3>Резервуар для химической продукции</h3>
-                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Татарстан</p>
-                            <p class="work-description">Изготовление и монтаж специализированного резервуара для хранения химической продукции.</p>
+                            <h3>Блок испарителя</h3>
+                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Оренбургская область</p>
+                            <p class="work-description">Производство и установка блока испарителя для технологических процессов нефтяной и химической промышленности.</p>
                         </div>
                     </div>
 
-                    <!-- Проект 6 -->
-                    <div class="work-card" data-category="boiler">
+                    <!-- Проект 6: Блок пожарного инвентаря -->
+                    <div class="work-card" data-category="fire">
                         <div class="work-image">
-                            <img src="images/works/boiler-2.jpg" alt="Промышленная котельная">
-                            <div class="work-category">Котельные</div>
+                            <img src="./images/works/fire1.jpeg" alt="Блок пожарного инвентаря и оборудования">
+                            <div class="work-category">Блоки пожарного оборудования</div>
+                            <button class="gallery-btn" data-project="fire">
+                                <i class="fas fa-images"></i> Смотреть все фото
+                            </button>
                         </div>
                         <div class="work-content">
-                            <h3>Промышленная котельная</h3>
-                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Челябинская область</p>
-                            <p class="work-description">Строительство промышленной котельной для металлургического завода.</p>
+                            <h3>Блок пожарного инвентаря и оборудования</h3>
+                            <p class="work-description">Изготовление модульного блока для размещения пожарного инвентаря и средств пожаротушения на промышленном объекте.</p>
+                        </div>
+                    </div>
+
+                    <!-- Проект 7: Аппаратурные блоки -->
+                    <div class="work-card" data-category="apparatus">
+                        <div class="work-image">
+                            <img src="./images/works/apparatus1.jpeg" alt="Аппаратурные блоки">
+                            <div class="work-category">Аппаратурные блоки</div>
+                            <button class="gallery-btn" data-project="apparatus">
+                                <i class="fas fa-images"></i> Смотреть все фото
+                            </button>
+                        </div>
+                        <div class="work-content">
+                            <h3>Аппаратурные блоки технологические</h3>
+                            <p class="work-description">Производство и монтаж комплектных технологических модулей заводской готовности для нефтедобывающего предприятия.</p>
                         </div>
                     </div>
                 </div>
@@ -169,10 +248,10 @@
                 <div class="works-stats">
                     <div class="stat-item">
                         <div class="stat-number">50+</div>
-                        <div class="stat-label">Реализованных проектов</div>
+                        <div class="stat-label">Реализовано проектов</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">15</div>
+                        <div class="stat-number">15+</div>
                         <div class="stat-label">Регионов работы</div>
                     </div>
                     <div class="stat-item">
@@ -203,17 +282,16 @@
     <footer class="footer">
       <div class="container footer-container">
           <div class="footer-logo">
-              <!-- Блок логотипа и названия как в header -->
               <div class="footer-logo-wrapper">
                   <div class="footer-logo-icon">
                       <img src="images/logo.png" alt="Логотип компании" class="logo-img">
                   </div>
                   <div class="footer-title">
                       <h2>ПРОМ ИНЖИНИРИНГ</h2>
-                      <p>Общество с ограниченной ответственностью</p>
+                      <p>общество с ограниченной ответственностью</p>
                   </div>
               </div>
-              <p class="footer-description">Проектирование, производство и поставка блочно-модульного и емкостного  оборудования для промышленных предприятий.</p>
+              <p class="footer-description">Проектирование, производство и поставка блочно-модульного и емкостного оборудования для промышленных предприятий.</p>
           </div>
           
           <div class="footer-contacts" id="contact">
@@ -245,7 +323,7 @@
               <ul>
                   <li><a href="index.html#about">О компании</a></li>
                   <li><a href="index.html#products">Продукция</a></li>
-                  <li><a href="index.html#docs">Документация</a></li>
+                  <li><a href="reviews.html">Отзывы</a></li>
                   <li><a href="index.html#contact">Контакты</a></li>
               </ul>
           </div>
@@ -285,13 +363,6 @@
             <!-- Описание -->
             <div class="modal-description">
                 <p id="modalProjectDescription">Описание проекта...</p>
-                
-                <div class="modal-specs">
-                    <h4>Технические характеристики:</h4>
-                    <div class="specs-grid" id="modalSpecs">
-                        <!-- Спецификации будут добавляться через JavaScript -->
-                    </div>
-                </div>
             </div>
             
             <!-- Навигация -->
