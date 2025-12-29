@@ -331,9 +331,47 @@ body {
   box-shadow: var(--shadow);
 }
 
+.activity-description-text {
+    text-align: center;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
 .activity-description p {
   font-size: 1.1rem;
   line-height: 1.8;
+}
+
+.competencies-list {
+    background: var(--light-bg);
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.competencies-list h4 {
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.competencies-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.competencies-list li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.competencies-list li i {
+    color: var(--primary-orange);
+    position: absolute;
+    left: 0;
+    top: 5px;
 }
 
 /* Секция продукции */

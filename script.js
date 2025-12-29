@@ -116,7 +116,15 @@ function initActiveNavigation() {
                 const firstLink = document.querySelector('.nav-link[href="#main"], .nav-link[href="index.html"]');
                 if (firstLink) firstLink.classList.add('active');
             }
-        } else {
+        }  else if (currentPage === 'docs.html') {
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === 'docs.html' || 
+                link.textContent.includes('Документация') ||
+                link.textContent.includes('Документация')) {
+                link.classList.add('active');
+            }
+        });
+    } else {
             // Если мы на других страницах, подсвечиваем соответствующую ссылку
             navLinks.forEach(link => {
                 const linkHref = link.getAttribute('href');
@@ -152,6 +160,7 @@ function initActiveNavigation() {
             }
         });
     });
+    
 }
 
 // Обработка изображений (заглушки)

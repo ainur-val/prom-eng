@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отзывы | ПРОМ ИНЖИНИРИНГ ООО</title>
+    <title>Документация | ПРОМ ИНЖИНИРИНГ ООО</title>
     <link rel="icon" href="./images/title.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <style>
-        /* Стили для страницы отзывов */
-        .reviews-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+        /* Стили для страницы документации */
+        .docs-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); 
             background-size: cover;
             background-position: center;
             color: white;
@@ -19,18 +19,18 @@
             text-align: center;
         }
         
-        .reviews-container {
+        .docs-container {
             padding: 60px 0;
         }
         
-        .reviews-grid {
+        .docs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
         
-        .review-item {
+        .doc-item {
             background: white;
             border-radius: 10px;
             overflow: hidden;
@@ -40,27 +40,66 @@
             position: relative;
         }
         
-        .review-item:hover {
+        .doc-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
         
-        .review-image {
-            height: 400px;
+        .doc-image {
+            height: 450px;
             overflow: hidden;
             position: relative;
             background: #f8f9fa;
         }
         
-        .review-image img {
+        .doc-image img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             transition: transform 0.5s ease;
         }
         
-        .review-item:hover .review-image img {
+        .doc-item:hover .doc-image img {
             transform: scale(1.03);
+        }
+        
+        .doc-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-orange);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .doc-info {
+            padding: 20px;
+            text-align: center;
+            border-top: 3px solid var(--primary-orange);
+        }
+        
+        .doc-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        .doc-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .doc-date i {
+            font-size: 0.9rem;
         }
         
         .zoom-overlay {
@@ -77,7 +116,7 @@
             transition: opacity 0.3s ease;
         }
         
-        .review-item:hover .zoom-overlay {
+        .doc-item:hover .zoom-overlay {
             opacity: 1;
         }
         
@@ -95,24 +134,11 @@
             transition: transform 0.3s ease;
         }
         
-        .review-item:hover .zoom-icon {
+        .doc-item:hover .zoom-icon {
             transform: scale(1);
         }
         
-        .review-company {
-            padding: 20px;
-            text-align: center;
-            border-top: 3px solid var(--primary-orange);
-        }
-        
-        .review-company h3 {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            margin: 0;
-            font-weight: 600;
-        }
-        
-        /* Модальное окно для просмотра */
+        /* Модальное окно для просмотра - БОЛЬШЕ ЧЕМ В ОТЗЫВАХ */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -138,7 +164,7 @@
         .modal-container {
             position: relative;
             width: 90%;
-            max-width: 1000px;
+            max-width: 1200px; /* БОЛЬШЕ чем в отзывах (там 1000px) */
             max-height: 90vh;
         }
         
@@ -170,20 +196,20 @@
             background: white;
             border-radius: 10px;
             overflow: hidden;
-            max-height: 80vh;
+            max-height: 85vh; /* БОЛЬШЕ чем в отзывах */
         }
         
         .modal-image {
             width: 100%;
             height: auto;
-            max-height: 70vh;
+            max-height: 75vh; /* БОЛЬШЕ чем в отзывах (там 70vh) */
             object-fit: contain;
             display: block;
         }
         
         .modal-caption {
             background: white;
-            padding: 15px;
+            padding: 20px; /* БОЛЬШЕ чем в отзывах */
             text-align: center;
             border-top: 1px solid var(--border-color);
         }
@@ -191,21 +217,21 @@
         .modal-caption h3 {
             color: var(--text-dark);
             margin: 0;
-            font-size: 1.1rem;
+            font-size: 1.2rem; /* БОЛЬШЕ чем в отзывах */
             font-weight: 600;
         }
         
         .modal-navigation {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            pointer-events: none;
-            border-top: none;
+          border-top: none;  
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          transform: translateY(-50%);
+          display: flex;
+          justify-content: space-between;
+          padding: 0 20px;
+          pointer-events: none;
         }
         
         .nav-btn {
@@ -239,13 +265,13 @@
         
         /* Адаптивность */
         @media (max-width: 768px) {
-            .reviews-grid {
+            .docs-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
                 gap: 20px;
             }
             
-            .review-image {
-                height: 350px;
+            .doc-image {
+                height: 400px;
             }
             
             .modal-container {
@@ -262,19 +288,27 @@
                 height: 40px;
                 font-size: 1rem;
             }
+            
+            .modal-image {
+                max-height: 65vh;
+            }
         }
         
         @media (max-width: 480px) {
-            .reviews-grid {
+            .docs-grid {
                 grid-template-columns: 1fr;
             }
             
-            .review-image {
-                height: 300px;
+            .doc-image {
+                height: 350px;
             }
             
-            .reviews-hero {
+            .docs-hero {
                 padding: 60px 0;
+            }
+            
+            .modal-image {
+                max-height: 55vh;
             }
         }
         
@@ -316,8 +350,8 @@
                     <li><a href="index.html#about" class="nav-link">О компании</a></li>
                     <li><a href="index.html#products" class="nav-link">Продукция</a></li>
                     <li><a href="works.html" class="nav-link">Наши работы</a></li>
-                    <li><a href="reviews.html" class="nav-link active">Отзывы</a></li>
-                    <li><a href="docs.html" class="nav-link">Документация</a></li>
+                    <li><a href="reviews.html" class="nav-link">Отзывы</a></li>
+                    <li><a href="docs.html" class="nav-link active">Документация</a></li>
                     <li><a href="index.html#contact" class="nav-link">Контакты</a></li>
                     <li><a href="news.html" class="nav-link">Новости</a></li>
                 </ul>
@@ -332,70 +366,63 @@
     <!-- Основное содержимое -->
     <main class="main">
         <!-- Герой-секция -->
-        <section class="reviews-hero">
+        <section class="docs-hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Отзывы клиентов</h1>
-                    <p class="hero-subtitle">Рекомендательные письма и благодарности от наших партнеров</p>
+                    <h1 class="hero-title">Документация</h1>
+                    <p class="hero-subtitle">Сертификаты, лицензии и разрешительные документы</p>
                 </div>
             </div>
         </section>
 
-        <!-- Галерея отзывов -->
-        <section class="reviews-container">
+        <!-- Галерея документации -->
+        <section class="docs-container">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Рекомендации и благодарности</h2>
+                    <h2 class="section-title">Разрешительная документация</h2>
                     <p class="section-subtitle">Нажмите на изображение для увеличения</p>
                 </div>
                 
-                <div class="reviews-grid" id="reviewsGrid">
-                    <!-- Отзыв 1 -->
-                    <div class="review-item" data-index="0">
-                        <div class="review-image">
-                            <img src="images/reviews/otz1.png" alt="Благодарственное письмо от ООО ЗНГ-Групп">
+                <div class="docs-grid" id="docsGrid">
+                    <!-- Свидетельство СРО -->
+                    <div class="doc-item" data-index="0">
+                        <div class="doc-image">
+                            <img src="images/docs/svid-sro.jpeg" alt="Свидетельство СРО о допуске к работам">
+                            <div class="doc-category">Свидетельство</div>
                             <div class="zoom-overlay">
                                 <div class="zoom-icon">
                                     <i class="fas fa-search-plus"></i>
                                 </div>
                             </div>
                         </div>
-                        <div class="review-company">
-                            <h3>ООО "ЗНГ-Групп"</h3>
+                        <div class="doc-info">
+                            <h3>Свидетельство СРО</h3>
                         </div>
                     </div>
                     
-                    <!-- Отзыв 2 -->
-                    <div class="review-item" data-index="1">
-                        <div class="review-image">
-                            <img src="images/reviews/otz2.png" alt="Рекомендательное письмо от ООО Сервис НК">
+                    <!-- Можно добавить больше документов позже -->
+                    <!--
+                    <div class="doc-item" data-index="1">
+                        <div class="doc-image">
+                            <img src="images/docs/license1.jpg" alt="Лицензия на деятельность">
+                            <div class="doc-category">Лицензия</div>
                             <div class="zoom-overlay">
                                 <div class="zoom-icon">
                                     <i class="fas fa-search-plus"></i>
                                 </div>
                             </div>
                         </div>
-                        <div class="review-company">
-                            <h3>ООО "Сервис НК"</h3>
-                        </div>
-                    </div>                  
-                    
-                    <!-- Отзыв 3 -->
-                    <div class="review-item" data-index="2">
-                        <div class="review-image">
-                            <img src="images/reviews/otz3.jpeg" alt="Характеристика от ООО ОЙЛСНАБ">
-                            <div class="zoom-overlay">
-                                <div class="zoom-icon">
-                                    <i class="fas fa-search-plus"></i>
-                                </div>
+                        <div class="doc-info">
+                            <h3>Лицензия на осуществление деятельности</h3>
+                            <div class="doc-date">
+                                <i class="far fa-calendar-alt"></i>
+                                <span>Действительна до: 31.12.2025</span>
                             </div>
                         </div>
-                        <div class="review-company">
-                            <h3>ООО "ОЙЛСНАБ"</h3>
-                        </div>
-                    </div>     
-
+                    </div>
+                    -->
                 </div>
+                
             </div>
         </section>
     </main>
@@ -472,7 +499,7 @@
                     <li><a href="index.html#products">Продукция</a></li>
                     <li><a href="works.html">Наши работы</a></li>
                     <li><a href="reviews.html">Отзывы</a></li>
-                    <li><a href="index.html#contact">Контакты</a></li>
+                    <li><a href="docs.html">Документация</a></li>
                 </ul>
             </div>
         </div>
@@ -488,20 +515,13 @@
     <!-- JavaScript для галереи -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Данные отзывов
-            const reviews = [
+            // Данные документов
+            const docs = [
                 {
-                    image: 'images/reviews/otz1.png',
-                    caption: 'ООО "ЗНГ-Групп" - Благодарственное письмо'
-                },
-                {
-                    image: 'images/reviews/otz2.png',
-                    caption: 'ООО "Сервис НК" - Рекомендательное письмо'
-                },
-                {
-                    image: 'images/reviews/otz3.jpeg',
-                    caption: 'ООО "ОЙЛСНАБ" - Характеристика'
-                },
+                    image: 'images/docs/svid-sro.jpeg',
+                    caption: 'Свидетельство СРО'
+                }
+                // Добавьте больше документов здесь позже
             ];
             
             // Элементы DOM
@@ -511,12 +531,12 @@
             const closeBtn = document.getElementById('closeModal');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
-            const reviewItems = document.querySelectorAll('.review-item');
+            const docItems = document.querySelectorAll('.doc-item');
             
             let currentIndex = 0;
             
             // Открытие модального окна
-            reviewItems.forEach(item => {
+            docItems.forEach(item => {
                 item.addEventListener('click', function() {
                     currentIndex = parseInt(this.getAttribute('data-index'));
                     openModal(currentIndex);
@@ -525,11 +545,13 @@
             
             // Функция открытия модального окна
             function openModal(index) {
-                modalImage.src = reviews[index].image;
-                modalCaption.textContent = reviews[index].caption;
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                updateNavigation();
+                if (docs[index]) {
+                    modalImage.src = docs[index].image;
+                    modalCaption.textContent = docs[index].caption;
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    updateNavigation();
+                }
             }
             
             // Закрытие модального окна
@@ -555,7 +577,7 @@
             });
             
             nextBtn.addEventListener('click', function() {
-                if (currentIndex < reviews.length - 1) {
+                if (currentIndex < docs.length - 1) {
                     currentIndex++;
                     openModal(currentIndex);
                 }
@@ -564,7 +586,7 @@
             // Обновление состояния кнопок навигации
             function updateNavigation() {
                 prevBtn.disabled = currentIndex === 0;
-                nextBtn.disabled = currentIndex === reviews.length - 1;
+                nextBtn.disabled = currentIndex === docs.length - 1;
             }
             
             // Управление с клавиатуры
@@ -576,13 +598,11 @@
                 } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
                     currentIndex--;
                     openModal(currentIndex);
-                } else if (e.key === 'ArrowRight' && currentIndex < reviews.length - 1) {
+                } else if (e.key === 'ArrowRight' && currentIndex < docs.length - 1) {
                     currentIndex++;
                     openModal(currentIndex);
                 }
             });
-            
-            
         });
     </script>
     
