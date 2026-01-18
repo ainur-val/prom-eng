@@ -1,360 +1,497 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Новости | ПРОМ ИНЖИНИРИНГ ООО</title>
-    <link rel="icon" href="./images/title.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" href="./images/title.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <!-- Основные мета-теги -->
+    <meta
+      name="description"
+      content="ПРОМ ИНЖИНИРИНГ ООО - проектирование, производство и поставка блочно-модульного оборудования. Блочно-модульные решения и строительство нефтегазовых объектов под ключ."
+    />
+    <meta
+      name="keywords"
+      content="пром инжиниринг, блочно-модульное оборудование, проектирование, строительство нефтегазовых объектов"
+    />
+
+    <!-- Open Graph для ВКонтакте, Telegram, WhatsApp -->
+    <meta
+      property="og:title"
+      content="ПРОМ ИНЖИНИРИНГ ООО - Проектирование и производство блочно-модульного оборудования"
+    />
+    <meta
+      property="og:description"
+      content="Полный цикл инжиниринга и строительства для промышленного сектора"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://prom-injining.ru" />
+    <meta
+      property="og:image"
+      content="https://prom-injining.ru/images/og-image.jpg"
+    />
+    <meta property="og:site_name" content="ПРОМ ИНЖИНИРИНГ ООО" />
+
+    <!-- Иконки (минимум) -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="images/favicon-32x32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <meta name="theme-color" content="#e57716" />
     <style>
-        /* Дополнительные стили для страницы новостей */
-        .news-date {
-            color: var(--primary-orange);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .news-date i {
-            font-size: 1rem;
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            background: white;
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .gallery-img {
-            width: 100%;
-            height: 250px;
-            object-fit: contain;
-            display: block;
-        }
-        
-        .gallery-caption {
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .gallery-caption h4 {
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-        
-        .quote-block {
-            background: var(--light-bg);
-            border-left: 4px solid var(--primary-orange);
-            padding: 25px;
-            margin: 40px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .quote-text {
-            font-size: 1.1rem;
-            font-style: italic;
-            color: var(--text-dark);
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-        
-        .quote-author {
-            font-weight: 600;
-            color: var(--primary-orange);
-            text-align: right;
-        }
-        
-        .news-highlight {
-            background: linear-gradient(135deg, var(--light-bg), white);
-            padding: 30px;
-            border-radius: 10px;
-            margin: 40px 0;
-            border: 2px solid var(--primary-orange);
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-        
-        .stat-card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-icon {
-            font-size: 2.5rem;
-            color: var(--primary-orange);
-            margin-bottom: 15px;
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-orange);
-            margin-bottom: 10px;
-        }
-        
-        .stat-text {
-            color: var(--gray);
-            font-size: 0.95rem;
-        }
-        
-        .news-cta {
-            text-align: center;
-            padding: 60px 0;
-            background: var(--light-bg);
-            border-radius: 15px;
-            margin: 60px 0;
-        }
+      /* Дополнительные стили для страницы новостей */
+      .news-date {
+        color: var(--primary-orange);
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .news-date i {
+        font-size: 1rem;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .gallery-item {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        background: white;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .gallery-img {
+        width: 100%;
+        height: 250px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .gallery-caption {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .gallery-caption h4 {
+        margin-bottom: 10px;
+        color: var(--text-dark);
+      }
+
+      .quote-block {
+        background: var(--light-bg);
+        border-left: 4px solid var(--primary-orange);
+        padding: 25px;
+        margin: 40px 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .quote-text {
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--text-dark);
+        line-height: 1.7;
+        margin-bottom: 15px;
+      }
+
+      .quote-author {
+        font-weight: 600;
+        color: var(--primary-orange);
+        text-align: right;
+      }
+
+      .news-highlight {
+        background: linear-gradient(135deg, var(--light-bg), white);
+        padding: 30px;
+        border-radius: 10px;
+        margin: 40px 0;
+        border: 2px solid var(--primary-orange);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin: 50px 0;
+      }
+
+      .stat-card {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .stat-icon {
+        font-size: 2.5rem;
+        color: var(--primary-orange);
+        margin-bottom: 15px;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-orange);
+        margin-bottom: 10px;
+      }
+
+      .stat-text {
+        color: var(--gray);
+        font-size: 0.95rem;
+      }
+
+      .news-cta {
+        text-align: center;
+        padding: 60px 0;
+        background: var(--light-bg);
+        border-radius: 15px;
+        margin: 60px 0;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Шапка сайта -->
     <header class="header">
-        <div class="container header-container">
-            <div class="header-main">
-                <!-- Логотип -->
-                <div class="header-logo">
-                    <a href="index.html" class="logo-link">
-                        <div class="logo-icon">
-                            <img src="images/logo.png" alt="Логотип компании" class="logo-img">
-                        </div>
-                    </a>
-                </div>
-                
-                <!-- Название компании с оранжевыми полосами -->
-                <div class="header-title-wrapper">
-                    <div class="header-title-stripe top"></div>
-                    <div class="header-title">
-                        <h1 class="company-name">ПРОМ ИНЖИНИРИНГ</h1>
-                        <p class="company-subtitle">общество с ограниченной ответственностью</p>
-                    </div>
-                    <div class="header-title-stripe bottom"></div>
-                </div>
+      <div class="container header-container">
+        <div class="header-main">
+          <!-- Логотип -->
+          <div class="header-logo">
+            <a href="index.html" class="logo-link">
+              <div class="logo-icon">
+                <img
+                  src="images/logo.png"
+                  alt="Логотип компании"
+                  class="logo-img"
+                />
+              </div>
+            </a>
+          </div>
+
+          <!-- Название компании с оранжевыми полосами -->
+          <div class="header-title-wrapper">
+            <div class="header-title-stripe top"></div>
+            <div class="header-title">
+              <h1 class="company-name">ПРОМ ИНЖИНИРИНГ</h1>
+              <p class="company-subtitle">
+                общество с ограниченной ответственностью
+              </p>
             </div>
-            
-            <!-- Навигация -->
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Главная</a></li>
-                    <li><a href="index.html#about" class="nav-link">О компании</a></li>
-                    <li><a href="index.html#products" class="nav-link">Продукция</a></li>
-                    <li><a href="works.html" class="nav-link">Наши работы</a></li>
-                    <li><a href="reviews.html" class="nav-link">Отзывы</a></li>
-                    <li><a href="docs.html" class="nav-link">Документация</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Контакты</a></li>
-                    <li><a href="news.html" class="nav-link active">Новости</a></li>
-                </ul>
-                
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
+            <div class="header-title-stripe bottom"></div>
+          </div>
         </div>
+
+        <!-- Навигация -->
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Главная</a></li>
+            <li><a href="index.html#about" class="nav-link">О компании</a></li>
+            <li>
+              <a href="index.html#products" class="nav-link">Продукция</a>
+            </li>
+            <li><a href="works.html" class="nav-link">Наши работы</a></li>
+            <li><a href="reviews.html" class="nav-link">Отзывы</a></li>
+            <li><a href="docs.html" class="nav-link">Документация</a></li>
+            <li><a href="index.html#contact" class="nav-link">Контакты</a></li>
+            <li><a href="news.html" class="nav-link active">Новости</a></li>
+          </ul>
+
+          <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <!-- Основное содержимое -->
     <main class="main">
-        <!-- Герой-секция -->
-        <section class="hero-section news-hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Новости компании</h1>
-                    <p class="hero-subtitle">Благотворительность и социальная ответственность</p>
-                </div>
+      <!-- Герой-секция -->
+      <section class="hero-section news-hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">Новости компании</h1>
+            <p class="hero-subtitle">
+              Благотворительность и социальная ответственность
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Основной контент -->
+      <section class="news-content-section">
+        <div class="container">
+          <!-- Заголовок -->
+          <h2
+            class="section-title"
+            style="text-align: left; margin-bottom: 30px"
+          >
+            Благотворительная деятельность: инвестиции в будущее через спорт
+          </h2>
+
+          <!-- Вступительный текст -->
+          <div class="news-highlight">
+            <p
+              style="
+                font-size: 1.2rem;
+                color: var(--text-dark);
+                margin-bottom: 0;
+              "
+            >
+              <strong>ООО "ПРОМ ИНЖИНИРИНГ"</strong> не только строит
+              промышленные объекты, но и создает условия для здорового будущего
+              наших детей через поддержку спорта и развитие спортивной
+              инфраструктуры.
+            </p>
+          </div>
+
+          <!-- Основной текст -->
+          <div class="content-block">
+            <h3>Наша миссия в сфере благотворительности</h3>
+            <p>
+              Как социально ответственная компания, мы считаем своим долгом
+              вносить вклад в развитие общества. Мы верим, что инвестиции в
+              спорт — это инвестиции в здоровье нации, в воспитание сильного
+              характера и формирование правильных ценностей у подрастающего
+              поколения.
+            </p>
+          </div>
+
+          <!-- Помощь детским спортшколам -->
+          <div class="content-block">
+            <h3>Системная помощь детским спортивным школам</h3>
+            <p>
+              Наша компания осуществляет адресную поддержку спортивных школ по
+              следующим направлениям:
+            </p>
+
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                margin: 25px 0;
+              "
+            >
+              <div
+                style="
+                  background: var(--light-bg);
+                  padding: 20px;
+                  border-radius: 8px;
+                "
+              >
+                <h4 style="color: var(--primary-orange); margin-bottom: 10px">
+                  Оснащение инвентарем
+                </h4>
+                <p>
+                  Поставка современного спортивного оборудования, формы и
+                  инвентаря
+                </p>
+              </div>
+
+              <div
+                style="
+                  background: var(--light-bg);
+                  padding: 20px;
+                  border-radius: 8px;
+                "
+              >
+                <h4 style="color: var(--primary-orange); margin-bottom: 10px">
+                  Организация соревнований
+                </h4>
+                <p>
+                  Финансирование и организация турниров и спортивных лагерей
+                </p>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <!-- Основной контент -->
-        <section class="news-content-section">
-            <div class="container">
-                <!-- Заголовок -->
-                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">
-                    Благотворительная деятельность: инвестиции в будущее через спорт
-                </h2>
+          <!-- Популяризация спорта -->
+          <div class="content-block">
+            <h3>Популяризация здорового образа жизни</h3>
+            <p>Мы активно участвуем в популяризации спорта через:</p>
 
-                <!-- Вступительный текст -->
-                <div class="news-highlight">
-                    <p style="font-size: 1.2rem; color: var(--text-dark); margin-bottom: 0;">
-                        <strong>ООО "ПРОМ ИНЖИНИРИНГ"</strong> не только строит промышленные объекты, но и создает условия для здорового будущего наших детей через поддержку спорта и развитие спортивной инфраструктуры.
-                    </p>
+            <ol
+              style="
+                margin: 20px 0 20px 30px;
+                color: var(--gray);
+                line-height: 1.8;
+              "
+            >
+              <li>Организацию массовых спортивных мероприятий и праздников</li>
+              <li>Строительство спортивных площадок</li>
+            </ol>
+          </div>
+
+          <!-- Галерея фотографий и благодарственных писем -->
+          <div class="content-block">
+            <h3>Фотогалерея и благодарственные письма</h3>
+            <p>
+              Ниже представлены фотографии реализованных проектов и
+              благодарственные письма от организаций, которым мы помогли.
+            </p>
+
+            <div class="gallery-grid">
+              <!-- Фото 1 -->
+              <div class="gallery-item">
+                <img
+                  src="./images/news/photo_2025-12-12_08-57-16.jpeg"
+                  alt="Спортивная площадка"
+                  class="gallery-img"
+                />
+                <div class="gallery-caption">
+                  <h4>Спортивная площадка</h4>
+                  <p>г. Октябрьский, 2024 год</p>
                 </div>
+              </div>
 
-                <!-- Основной текст -->
-                <div class="content-block">
-                    <h3>Наша миссия в сфере благотворительности</h3>
-                    <p>Как социально ответственная компания, мы считаем своим долгом вносить вклад в развитие общества. Мы верим, что инвестиции в спорт — это инвестиции в здоровье нации, в воспитание сильного характера и формирование правильных ценностей у подрастающего поколения.</p>
+              <!-- Фото 2 -->
+              <div class="gallery-item">
+                <img
+                  src="./images/news/photo_2025-12-12_08-57-41.jpeg"
+                  alt="Спортивная площадка"
+                  class="gallery-img"
+                />
+                <div class="gallery-caption">
+                  <h4>Спортивная площадка</h4>
+                  <p>г. Октябрьский, 2024 год</p>
                 </div>
+              </div>
 
-                <!-- Помощь детским спортшколам -->
-                <div class="content-block">
-                    <h3>Системная помощь детским спортивным школам</h3>
-                    <p>Наша компания осуществляет адресную поддержку спортивных школ по следующим направлениям:</p>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 25px 0;">
-                        <div style="background: var(--light-bg); padding: 20px; border-radius: 8px;">
-                            <h4 style="color: var(--primary-orange); margin-bottom: 10px;">Оснащение инвентарем</h4>
-                            <p>Поставка современного спортивного оборудования, формы и инвентаря</p>
-                        </div>
-                        
-                        <div style="background: var(--light-bg); padding: 20px; border-radius: 8px;">
-                            <h4 style="color: var(--primary-orange); margin-bottom: 10px;">Организация соревнований</h4>
-                            <p>Финансирование и организация турниров и спортивных лагерей</p>
-                        </div>
-                    </div>
+              <!-- Фото 3 -->
+              <div class="gallery-item">
+                <img
+                  src="./images/news/photo_2025-12-12_08-58-12.jpeg"
+                  alt="Спортивная площадка"
+                  class="gallery-img"
+                />
+                <div class="gallery-caption">
+                  <h4>Спортивная площадка</h4>
+                  <p>г. Октябрьский, 2024 год</p>
                 </div>
+              </div>
 
-                <!-- Популяризация спорта -->
-                <div class="content-block">
-                    <h3>Популяризация здорового образа жизни</h3>
-                    <p>Мы активно участвуем в популяризации спорта через:</p>
-                    
-                    <ol style="margin: 20px 0 20px 30px; color: var(--gray); line-height: 1.8;">
-                        <li>Организацию массовых спортивных мероприятий и праздников</li>
-                        <li>Строительство спортивных площадок</li>
-                    </ol>
+              <!-- Фото 4 -->
+              <div class="gallery-item">
+                <img
+                  src="./images/news/image-a6cfcd35-9c61-437f-a171-00f5078ae168.png"
+                  alt="Благодарственное письмо"
+                  class="gallery-img"
+                />
+                <div class="gallery-caption">
+                  <h4>
+                    Благодарность от Федерации спортивной борьбы г.Октябрьский
+                  </h4>
+                  <p>г. Октябрьский, 2024 год</p>
                 </div>
-
-                <!-- Галерея фотографий и благодарственных писем -->
-                <div class="content-block">
-                    <h3>Фотогалерея и благодарственные письма</h3>
-                    <p>Ниже представлены фотографии реализованных проектов и благодарственные письма от организаций, которым мы помогли.</p>
-                    
-                    <div class="gallery-grid">
-                        <!-- Фото 1 -->
-                        <div class="gallery-item">
-                            <img src='./images/news/photo_2025-12-12_08-57-16.jpeg' alt="Спортивная площадка" class="gallery-img">
-                            <div class="gallery-caption">
-                                <h4>Спортивная площадка</h4>
-                                <p>г. Октябрьский, 2024 год</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Фото 2 -->
-                        <div class="gallery-item">
-                            <img src='./images/news/photo_2025-12-12_08-57-41.jpeg' alt="Спортивная площадка" class="gallery-img">
-                            <div class="gallery-caption">
-                                <h4>Спортивная площадка</h4>
-                                <p>г. Октябрьский, 2024 год</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Фото 3 -->
-                        <div class="gallery-item">
-                            <img src='./images/news/photo_2025-12-12_08-58-12.jpeg' alt="Спортивная площадка" class="gallery-img">
-                            <div class="gallery-caption">
-                                <h4>Спортивная площадка</h4>
-                                <p>г. Октябрьский, 2024 год</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Фото 4 -->
-                        <div class="gallery-item">
-                            <img src='./images/news/image-a6cfcd35-9c61-437f-a171-00f5078ae168.png' alt="Благодарственное письмо" class="gallery-img">
-                            <div class="gallery-caption">
-                                <h4>Благодарность от Федерации спортивной борьбы г.Октябрьский</h4>
-                                <p>г. Октябрьский, 2024 год</p>
-                            </div>
-                        </div>
-                
-                    </div>
-                </div>
-
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Подвал сайта -->
     <footer class="footer">
       <div class="container footer-container">
-          <div class="footer-logo">
-              <!-- Блок логотипа и названия как в header -->
-              <div class="footer-logo-wrapper">
-                  <div class="footer-logo-icon">
-                      <img src="images/logo.png" alt="Логотип компании" class="logo-img">
-                  </div>
-                  <div class="footer-title">
-                      <h2>ПРОМ ИНЖИНИРИНГ</h2>
-                      <p>общество с ограниченной ответственностью</p>
-                  </div>
-              </div>
-              <p class="footer-description">Проектирование, производство и поставка блочно-модульного и емкостного оборудования для промышленных предприятий, а также комплексное строительство объектов нефтегазовой инфраструктуры.</p>
+        <div class="footer-logo">
+          <!-- Блок логотипа и названия как в header -->
+          <div class="footer-logo-wrapper">
+            <div class="footer-logo-icon">
+              <img
+                src="images/logo.png"
+                alt="Логотип компании"
+                class="logo-img"
+              />
+            </div>
+            <div class="footer-title">
+              <h2>ПРОМ ИНЖИНИРИНГ</h2>
+              <p>общество с ограниченной ответственностью</p>
+            </div>
           </div>
-          
-          <div class="footer-contacts" id="contact">
-              <h3>Контакты</h3>
-              <ul class="contact-list">
-                  <li>
-                      <i class="fas fa-map-marker-alt"></i>
-                      <span>452606, Республика Башкортостан, г.Октябрьский, ул.Северная, зд.19, офис 205</span>
-                  </li>
-                  <li>
-                      <i class="fas fa-phone"></i>
-                      <span>+7 (927) 35-85-716<br>+7 (347) 677-09-09</span>
-                  </li>
-                  <li>
-                      <i class="fas fa-envelope"></i>
-                      <span>prom_in@internet.ru</span>
-                  </li>
-              </ul>
-              
-              <div class="social-links">
-                  <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
-                  <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                  <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-              </div>
+          <p class="footer-description">
+            Проектирование, производство и поставка блочно-модульного и
+            емкостного оборудования для промышленных предприятий, а также
+            комплексное строительство объектов нефтегазовой инфраструктуры.
+          </p>
+        </div>
+
+        <div class="footer-contacts" id="contact">
+          <h3>Контакты</h3>
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span
+                >452606, Республика Башкортостан, г.Октябрьский, ул.Северная,
+                зд.19, офис 205</span
+              >
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+7 (927) 35-85-716<br />+7 (347) 677-09-09</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>prom_in@internet.ru</span>
+            </li>
+          </ul>
+
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
           </div>
-          
-          <div class="footer-quick-links">
-              <h3>Быстрые ссылки</h3>
-              <ul>
-                  <li><a href="index.html#about">О компании</a></li>
-                  <li><a href="index.html#products">Продукция</a></li>
-                  <li><a href="works.html">Наши работы</a></li>
-                  <li><a href="docs.html">Документация</a></li>
-                  <li><a href="index.html#contact">Контакты</a></li>
-              </ul>
-          </div>
+        </div>
+
+        <div class="footer-quick-links">
+          <h3>Быстрые ссылки</h3>
+          <ul>
+            <li><a href="index.html#about">О компании</a></li>
+            <li><a href="index.html#products">Продукция</a></li>
+            <li><a href="works.html">Наши работы</a></li>
+            <li><a href="docs.html">Документация</a></li>
+            <li><a href="index.html#contact">Контакты</a></li>
+          </ul>
+        </div>
       </div>
-      
+
       <div class="footer-bottom">
-          <div class="container">
-              <p>&copy; 2025 ПРОМ ИНЖИНИРИНГ ООО. Все права защищены.</p>
-              <p><a href="#">Политика конфиденциальности</a> | <a href="#">Карта сайта</a></p>
-          </div>
+        <div class="container">
+          <p>&copy; 2025 ПРОМ ИНЖИНИРИНГ ООО. Все права защищены.</p>
+          <p>
+            <a href="#">Политика конфиденциальности</a> |
+            <a href="#">Карта сайта</a>
+          </p>
+        </div>
       </div>
-  </footer>
+    </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

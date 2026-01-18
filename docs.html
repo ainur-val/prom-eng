@@ -1,407 +1,467 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Документация | ПРОМ ИНЖИНИРИНГ ООО</title>
-    <link rel="icon" href="./images/title.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" href="./images/title.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <!-- Основные мета-теги -->
+    <meta
+      name="description"
+      content="ПРОМ ИНЖИНИРИНГ ООО - проектирование, производство и поставка блочно-модульного оборудования. Блочно-модульные решения и строительство нефтегазовых объектов под ключ."
+    />
+    <meta
+      name="keywords"
+      content="пром инжиниринг, блочно-модульное оборудование, проектирование, строительство нефтегазовых объектов"
+    />
+
+    <!-- Open Graph для ВКонтакте, Telegram, WhatsApp -->
+    <meta
+      property="og:title"
+      content="ПРОМ ИНЖИНИРИНГ ООО - Проектирование и производство блочно-модульного оборудования"
+    />
+    <meta
+      property="og:description"
+      content="Полный цикл инжиниринга и строительства для промышленного сектора"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://prom-injining.ru" />
+    <meta
+      property="og:image"
+      content="https://prom-injining.ru/images/og-image.jpg"
+    />
+    <meta property="og:site_name" content="ПРОМ ИНЖИНИРИНГ ООО" />
+
+    <!-- Иконки (минимум) -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="images/favicon-32x32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <meta name="theme-color" content="#e57716" />
     <style>
-        /* Стили для страницы документации */
-        .docs-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); 
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .docs-container {
-            padding: 60px 0;
-        }
-        
+      /* Стили для страницы документации */
+      .docs-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .docs-container {
+        padding: 60px 0;
+      }
+
+      .docs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .doc-item {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        cursor: pointer;
+        position: relative;
+      }
+
+      .doc-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .doc-image {
+        height: 450px;
+        overflow: hidden;
+        position: relative;
+        background: #f8f9fa;
+      }
+
+      .doc-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+      }
+
+      .doc-item:hover .doc-image img {
+        transform: scale(1.03);
+      }
+
+      .doc-category {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--primary-orange);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .doc-info {
+        padding: 20px;
+        text-align: center;
+        border-top: 3px solid var(--primary-orange);
+      }
+
+      .doc-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: var(--text-dark);
+        font-weight: 600;
+      }
+
+      .doc-date {
+        color: var(--gray);
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .doc-date i {
+        font-size: 0.9rem;
+      }
+
+      .zoom-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .doc-item:hover .zoom-overlay {
+        opacity: 1;
+      }
+
+      .zoom-icon {
+        background: var(--primary-orange);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        transform: scale(0.8);
+        transition: transform 0.3s ease;
+      }
+
+      .doc-item:hover .zoom-icon {
+        transform: scale(1);
+      }
+
+      /* Модальное окно для просмотра - БОЛЬШЕ ЧЕМ В ОТЗЫВАХ */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.95);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        padding: 20px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal-overlay.active {
+        display: flex;
+        opacity: 1;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal-container {
+        position: relative;
+        width: 90%;
+        max-width: 1200px; /* БОЛЬШЕ чем в отзывах (там 1000px) */
+        max-height: 90vh;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: -50px;
+        right: 0;
+        background: var(--primary-orange);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: var(--transition);
+      }
+
+      .modal-close:hover {
+        background: var(--dark-orange);
+        transform: rotate(90deg);
+      }
+
+      .modal-image-container {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        max-height: 85vh; /* БОЛЬШЕ чем в отзывах */
+      }
+
+      .modal-image {
+        width: 100%;
+        height: auto;
+        max-height: 75vh; /* БОЛЬШЕ чем в отзывах (там 70vh) */
+        object-fit: contain;
+        display: block;
+      }
+
+      .modal-caption {
+        background: white;
+        padding: 20px; /* БОЛЬШЕ чем в отзывах */
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .modal-caption h3 {
+        color: var(--text-dark);
+        margin: 0;
+        font-size: 1.2rem; /* БОЛЬШЕ чем в отзывах */
+        font-weight: 600;
+      }
+
+      .modal-navigation {
+        border-top: none;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        pointer-events: none;
+      }
+
+      .nav-btn {
+        background: var(--primary-orange);
+        color: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: var(--transition);
+        pointer-events: all;
+        opacity: 0.8;
+      }
+
+      .nav-btn:hover {
+        background: var(--dark-orange);
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      .nav-btn:disabled {
+        background: #666;
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+
+      /* Адаптивность */
+      @media (max-width: 768px) {
         .docs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 20px;
         }
-        
-        .doc-item {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .doc-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
+
         .doc-image {
-            height: 450px;
-            overflow: hidden;
-            position: relative;
-            background: #f8f9fa;
+          height: 400px;
         }
-        
-        .doc-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
-        
-        .doc-item:hover .doc-image img {
-            transform: scale(1.03);
-        }
-        
-        .doc-category {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--primary-orange);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .doc-info {
-            padding: 20px;
-            text-align: center;
-            border-top: 3px solid var(--primary-orange);
-        }
-        
-        .doc-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-            font-weight: 600;
-        }
-        
-        .doc-date {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        
-        .doc-date i {
-            font-size: 0.9rem;
-        }
-        
-        .zoom-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .doc-item:hover .zoom-overlay {
-            opacity: 1;
-        }
-        
-        .zoom-icon {
-            background: var(--primary-orange);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            transform: scale(0.8);
-            transition: transform 0.3s ease;
-        }
-        
-        .doc-item:hover .zoom-icon {
-            transform: scale(1);
-        }
-        
-        /* Модальное окно для просмотра - БОЛЬШЕ ЧЕМ В ОТЗЫВАХ */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.95);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .modal-overlay.active {
-            display: flex;
-            opacity: 1;
-            animation: fadeIn 0.3s ease;
-        }
-        
+
         .modal-container {
-            position: relative;
-            width: 90%;
-            max-width: 1200px; /* БОЛЬШЕ чем в отзывах (там 1000px) */
-            max-height: 90vh;
+          width: 95%;
         }
-        
+
         .modal-close {
-            position: absolute;
-            top: -50px;
-            right: 0;
-            background: var(--primary-orange);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-            transition: var(--transition);
+          top: -40px;
+          right: -10px;
         }
-        
-        .modal-close:hover {
-            background: var(--dark-orange);
-            transform: rotate(90deg);
-        }
-        
-        .modal-image-container {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            max-height: 85vh; /* БОЛЬШЕ чем в отзывах */
-        }
-        
-        .modal-image {
-            width: 100%;
-            height: auto;
-            max-height: 75vh; /* БОЛЬШЕ чем в отзывах (там 70vh) */
-            object-fit: contain;
-            display: block;
-        }
-        
-        .modal-caption {
-            background: white;
-            padding: 20px; /* БОЛЬШЕ чем в отзывах */
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-        }
-        
-        .modal-caption h3 {
-            color: var(--text-dark);
-            margin: 0;
-            font-size: 1.2rem; /* БОЛЬШЕ чем в отзывах */
-            font-weight: 600;
-        }
-        
-        .modal-navigation {
-          border-top: none;  
-          position: absolute;
-          top: 50%;
-          left: 0;
-          right: 0;
-          transform: translateY(-50%);
-          display: flex;
-          justify-content: space-between;
-          padding: 0 20px;
-          pointer-events: none;
-        }
-        
+
         .nav-btn {
-            background: var(--primary-orange);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-            pointer-events: all;
-            opacity: 0.8;
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
         }
-        
-        .nav-btn:hover {
-            background: var(--dark-orange);
-            opacity: 1;
-            transform: scale(1.1);
+
+        .modal-image {
+          max-height: 65vh;
         }
-        
-        .nav-btn:disabled {
-            background: #666;
-            cursor: not-allowed;
-            opacity: 0.5;
+      }
+
+      @media (max-width: 480px) {
+        .docs-grid {
+          grid-template-columns: 1fr;
         }
-        
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .docs-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-                gap: 20px;
-            }
-            
-            .doc-image {
-                height: 400px;
-            }
-            
-            .modal-container {
-                width: 95%;
-            }
-            
-            .modal-close {
-                top: -40px;
-                right: -10px;
-            }
-            
-            .nav-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            
-            .modal-image {
-                max-height: 65vh;
-            }
+
+        .doc-image {
+          height: 350px;
         }
-        
-        @media (max-width: 480px) {
-            .docs-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .doc-image {
-                height: 350px;
-            }
-            
-            .docs-hero {
-                padding: 60px 0;
-            }
-            
-            .modal-image {
-                max-height: 55vh;
-            }
+
+        .docs-hero {
+          padding: 60px 0;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        .modal-image {
+          max-height: 55vh;
         }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Шапка сайта -->
     <header class="header">
-        <div class="container header-container">
-            <div class="header-main">
-                <!-- Логотип -->
-                <div class="header-logo">
-                    <a href="index.html" class="logo-link">
-                        <div class="logo-icon">
-                            <img src="images/logo.png" alt="Логотип компании" class="logo-img">
-                        </div>
-                    </a>
-                </div>
-                
-                <!-- Название компании с оранжевыми полосами -->
-                <div class="header-title-wrapper">
-                    <div class="header-title-stripe top"></div>
-                    <div class="header-title">
-                        <h1 class="company-name">ПРОМ ИНЖИНИРИНГ</h1>
-                        <p class="company-subtitle">общество с ограниченной ответственностью</p>
-                    </div>
-                    <div class="header-title-stripe bottom"></div>
-                </div>
+      <div class="container header-container">
+        <div class="header-main">
+          <!-- Логотип -->
+          <div class="header-logo">
+            <a href="index.html" class="logo-link">
+              <div class="logo-icon">
+                <img
+                  src="images/logo.png"
+                  alt="Логотип компании"
+                  class="logo-img"
+                />
+              </div>
+            </a>
+          </div>
+
+          <!-- Название компании с оранжевыми полосами -->
+          <div class="header-title-wrapper">
+            <div class="header-title-stripe top"></div>
+            <div class="header-title">
+              <h1 class="company-name">ПРОМ ИНЖИНИРИНГ</h1>
+              <p class="company-subtitle">
+                общество с ограниченной ответственностью
+              </p>
             </div>
-            
-            <!-- Навигация -->
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Главная</a></li>
-                    <li><a href="index.html#about" class="nav-link">О компании</a></li>
-                    <li><a href="index.html#products" class="nav-link">Продукция</a></li>
-                    <li><a href="works.html" class="nav-link">Наши работы</a></li>
-                    <li><a href="reviews.html" class="nav-link">Отзывы</a></li>
-                    <li><a href="docs.html" class="nav-link active">Документация</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Контакты</a></li>
-                    <li><a href="news.html" class="nav-link">Новости</a></li>
-                </ul>
-                
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
+            <div class="header-title-stripe bottom"></div>
+          </div>
         </div>
+
+        <!-- Навигация -->
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Главная</a></li>
+            <li><a href="index.html#about" class="nav-link">О компании</a></li>
+            <li>
+              <a href="index.html#products" class="nav-link">Продукция</a>
+            </li>
+            <li><a href="works.html" class="nav-link">Наши работы</a></li>
+            <li><a href="reviews.html" class="nav-link">Отзывы</a></li>
+            <li>
+              <a href="docs.html" class="nav-link active">Документация</a>
+            </li>
+            <li><a href="index.html#contact" class="nav-link">Контакты</a></li>
+            <li><a href="news.html" class="nav-link">Новости</a></li>
+          </ul>
+
+          <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <!-- Основное содержимое -->
     <main class="main">
-        <!-- Герой-секция -->
-        <section class="docs-hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Документация</h1>
-                    <p class="hero-subtitle">Сертификаты, лицензии и разрешительные документы</p>
-                </div>
-            </div>
-        </section>
+      <!-- Герой-секция -->
+      <section class="docs-hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">Документация</h1>
+            <p class="hero-subtitle">
+              Сертификаты, лицензии и разрешительные документы
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <!-- Галерея документации -->
-        <section class="docs-container">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Разрешительная документация</h2>
-                    <p class="section-subtitle">Нажмите на изображение для увеличения</p>
+      <!-- Галерея документации -->
+      <section class="docs-container">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Разрешительная документация</h2>
+            <p class="section-subtitle">
+              Нажмите на изображение для увеличения
+            </p>
+          </div>
+
+          <div class="docs-grid" id="docsGrid">
+            <!-- Свидетельство СРО -->
+            <div class="doc-item" data-index="0">
+              <div class="doc-image">
+                <img
+                  src="images/docs/svid-sro.jpeg"
+                  alt="Свидетельство СРО о допуске к работам"
+                />
+                <div class="doc-category">Свидетельство</div>
+                <div class="zoom-overlay">
+                  <div class="zoom-icon">
+                    <i class="fas fa-search-plus"></i>
+                  </div>
                 </div>
-                
-                <div class="docs-grid" id="docsGrid">
-                    <!-- Свидетельство СРО -->
-                    <div class="doc-item" data-index="0">
-                        <div class="doc-image">
-                            <img src="images/docs/svid-sro.jpeg" alt="Свидетельство СРО о допуске к работам">
-                            <div class="doc-category">Свидетельство</div>
-                            <div class="zoom-overlay">
-                                <div class="zoom-icon">
-                                    <i class="fas fa-search-plus"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="doc-info">
-                            <h3>Свидетельство СРО</h3>
-                        </div>
-                    </div>
-                    
-                    <!-- Можно добавить больше документов позже -->
-                    <!--
+              </div>
+              <div class="doc-info">
+                <h3>Свидетельство СРО</h3>
+              </div>
+            </div>
+
+            <!-- Можно добавить больше документов позже -->
+            <!--
                     <div class="doc-item" data-index="1">
                         <div class="doc-image">
                             <img src="images/docs/license1.jpg" alt="Лицензия на деятельность">
@@ -421,191 +481,204 @@
                         </div>
                     </div>
                     -->
-                </div>
-                
-            </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Модальное окно для просмотра -->
     <div class="modal-overlay" id="imageModal">
-        <button class="modal-close" id="closeModal">
-            <i class="fas fa-times"></i>
-        </button>
-        
-        <div class="modal-container">
-            <div class="modal-image-container">
-                <img id="modalImage" class="modal-image" src="" alt="">
-                <div class="modal-caption">
-                    <h3 id="modalCaption"></h3>
-                </div>
-            </div>
-            
-            <div class="modal-navigation">
-                <button class="nav-btn prev-btn" id="prevBtn">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="nav-btn next-btn" id="nextBtn">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
+      <button class="modal-close" id="closeModal">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="modal-container">
+        <div class="modal-image-container">
+          <img id="modalImage" class="modal-image" src="" alt="" />
+          <div class="modal-caption">
+            <h3 id="modalCaption"></h3>
+          </div>
         </div>
+
+        <div class="modal-navigation">
+          <button class="nav-btn prev-btn" id="prevBtn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="nav-btn next-btn" id="nextBtn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- Подвал сайта -->
     <footer class="footer">
-        <div class="container footer-container">
-            <div class="footer-logo">
-                <div class="footer-logo-wrapper">
-                    <div class="footer-logo-icon">
-                        <img src="images/logo.png" alt="Логотип компании" class="logo-img">
-                    </div>
-                    <div class="footer-title">
-                        <h2>ПРОМ ИНЖИНИРИНГ</h2>
-                        <p>общество с ограниченной ответственностью</p>
-                    </div>
-                </div>
-                <p class="footer-description">Проектирование, производство и поставка блочно-модульного и емкостного оборудования для промышленных предприятий, а также комплексное строительство объектов нефтегазовой инфраструктуры.</p>
+      <div class="container footer-container">
+        <div class="footer-logo">
+          <div class="footer-logo-wrapper">
+            <div class="footer-logo-icon">
+              <img
+                src="images/logo.png"
+                alt="Логотип компании"
+                class="logo-img"
+              />
             </div>
-            
-            <div class="footer-contacts" id="contact">
-                <h3>Контакты</h3>
-                <ul class="contact-list">
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>452606, Республика Башкортостан, г.Октябрьский, ул.Северная, зд.19, офис 205</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-phone"></i>
-                        <span>+7 (927) 35-85-716<br>+7 (347) 677-09-09</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-envelope"></i>
-                        <span>prom_in@internet.ru</span>
-                    </li>
-                </ul>
-                
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                </div>
+            <div class="footer-title">
+              <h2>ПРОМ ИНЖИНИРИНГ</h2>
+              <p>общество с ограниченной ответственностью</p>
             </div>
-            
-            <div class="footer-quick-links">
-                <h3>Быстрые ссылки</h3>
-                <ul>
-                    <li><a href="index.html#about">О компании</a></li>
-                    <li><a href="index.html#products">Продукция</a></li>
-                    <li><a href="works.html">Наши работы</a></li>
-                    <li><a href="reviews.html">Отзывы</a></li>
-                    <li><a href="docs.html">Документация</a></li>
-                </ul>
-            </div>
+          </div>
+          <p class="footer-description">
+            Проектирование, производство и поставка блочно-модульного и
+            емкостного оборудования для промышленных предприятий, а также
+            комплексное строительство объектов нефтегазовой инфраструктуры.
+          </p>
         </div>
-        
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2025 ПРОМ ИНЖИНИРИНГ ООО. Все права защищены.</p>
-                <p><a href="#">Политика конфиденциальности</a> | <a href="#">Карта сайта</a></p>
-            </div>
+
+        <div class="footer-contacts" id="contact">
+          <h3>Контакты</h3>
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span
+                >452606, Республика Башкортостан, г.Октябрьский, ул.Северная,
+                зд.19, офис 205</span
+              >
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+7 (927) 35-85-716<br />+7 (347) 677-09-09</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>prom_in@internet.ru</span>
+            </li>
+          </ul>
+
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
         </div>
+
+        <div class="footer-quick-links">
+          <h3>Быстрые ссылки</h3>
+          <ul>
+            <li><a href="index.html#about">О компании</a></li>
+            <li><a href="index.html#products">Продукция</a></li>
+            <li><a href="works.html">Наши работы</a></li>
+            <li><a href="reviews.html">Отзывы</a></li>
+            <li><a href="docs.html">Документация</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2025 ПРОМ ИНЖИНИРИНГ ООО. Все права защищены.</p>
+          <p>
+            <a href="#">Политика конфиденциальности</a> |
+            <a href="#">Карта сайта</a>
+          </p>
+        </div>
+      </div>
     </footer>
 
     <!-- JavaScript для галереи -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Данные документов
-            const docs = [
-                {
-                    image: 'images/docs/svid-sro.jpeg',
-                    caption: 'Свидетельство СРО'
-                }
-                // Добавьте больше документов здесь позже
-            ];
-            
-            // Элементы DOM
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalCaption = document.getElementById('modalCaption');
-            const closeBtn = document.getElementById('closeModal');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const docItems = document.querySelectorAll('.doc-item');
-            
-            let currentIndex = 0;
-            
-            // Открытие модального окна
-            docItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    currentIndex = parseInt(this.getAttribute('data-index'));
-                    openModal(currentIndex);
-                });
-            });
-            
-            // Функция открытия модального окна
-            function openModal(index) {
-                if (docs[index]) {
-                    modalImage.src = docs[index].image;
-                    modalCaption.textContent = docs[index].caption;
-                    modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                    updateNavigation();
-                }
-            }
-            
-            // Закрытие модального окна
-            closeBtn.addEventListener('click', closeModal);
-            
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    closeModal();
-                }
-            });
-            
-            function closeModal() {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-            
-            // Навигация
-            prevBtn.addEventListener('click', function() {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    openModal(currentIndex);
-                }
-            });
-            
-            nextBtn.addEventListener('click', function() {
-                if (currentIndex < docs.length - 1) {
-                    currentIndex++;
-                    openModal(currentIndex);
-                }
-            });
-            
-            // Обновление состояния кнопок навигации
-            function updateNavigation() {
-                prevBtn.disabled = currentIndex === 0;
-                nextBtn.disabled = currentIndex === docs.length - 1;
-            }
-            
-            // Управление с клавиатуры
-            document.addEventListener('keydown', function(e) {
-                if (!modal.classList.contains('active')) return;
-                
-                if (e.key === 'Escape') {
-                    closeModal();
-                } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
-                    currentIndex--;
-                    openModal(currentIndex);
-                } else if (e.key === 'ArrowRight' && currentIndex < docs.length - 1) {
-                    currentIndex++;
-                    openModal(currentIndex);
-                }
-            });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Данные документов
+        const docs = [
+          {
+            image: "images/docs/svid-sro.jpeg",
+            caption: "Свидетельство СРО",
+          },
+          // Добавьте больше документов здесь позже
+        ];
+
+        // Элементы DOM
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+        const modalCaption = document.getElementById("modalCaption");
+        const closeBtn = document.getElementById("closeModal");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const docItems = document.querySelectorAll(".doc-item");
+
+        let currentIndex = 0;
+
+        // Открытие модального окна
+        docItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            currentIndex = parseInt(this.getAttribute("data-index"));
+            openModal(currentIndex);
+          });
         });
+
+        // Функция открытия модального окна
+        function openModal(index) {
+          if (docs[index]) {
+            modalImage.src = docs[index].image;
+            modalCaption.textContent = docs[index].caption;
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+            updateNavigation();
+          }
+        }
+
+        // Закрытие модального окна
+        closeBtn.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+
+        function closeModal() {
+          modal.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+
+        // Навигация
+        prevBtn.addEventListener("click", function () {
+          if (currentIndex > 0) {
+            currentIndex--;
+            openModal(currentIndex);
+          }
+        });
+
+        nextBtn.addEventListener("click", function () {
+          if (currentIndex < docs.length - 1) {
+            currentIndex++;
+            openModal(currentIndex);
+          }
+        });
+
+        // Обновление состояния кнопок навигации
+        function updateNavigation() {
+          prevBtn.disabled = currentIndex === 0;
+          nextBtn.disabled = currentIndex === docs.length - 1;
+        }
+
+        // Управление с клавиатуры
+        document.addEventListener("keydown", function (e) {
+          if (!modal.classList.contains("active")) return;
+
+          if (e.key === "Escape") {
+            closeModal();
+          } else if (e.key === "ArrowLeft" && currentIndex > 0) {
+            currentIndex--;
+            openModal(currentIndex);
+          } else if (e.key === "ArrowRight" && currentIndex < docs.length - 1) {
+            currentIndex++;
+            openModal(currentIndex);
+          }
+        });
+      });
     </script>
-    
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
